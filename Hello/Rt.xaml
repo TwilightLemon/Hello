@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Hello.Rt"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hello"
+             mc:Ignorable="d" Height="64.75" Width="114.25" SizeChanged="UserControl_SizeChanged">
+    <UserControl.Background>
+        <VisualBrush>
+            <VisualBrush.Visual>
+                <Path x:Name="p" Data="M0 90l-0-900 900 900z" Fill="#FFFFE3D7" Stroke="#FFFDD4C2" RenderTransformOrigin="0.5,0.5" StrokeThickness="10">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </UserControl.Background>
+</UserControl>
