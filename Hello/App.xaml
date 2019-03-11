@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:Hello"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <SolidColorBrush x:Key="color" Color="#FFFFE3D7"/>
+
     </Application.Resources>
 </Application>

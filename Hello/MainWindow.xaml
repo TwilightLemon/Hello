@@ -24,9 +24,10 @@
                 </TransformGroup>
             </Grid.RenderTransform>
         </Grid>
-        <Button Content="绘制" HorizontalAlignment="Right" Margin="0,572.114,34,0" VerticalAlignment="Top" Width="92" Click="Button_Click"/>
+        <Button Content="绘制" HorizontalAlignment="Right" Margin="0,0,34,152" VerticalAlignment="Bottom" Width="92" Click="Button_Click"/>
         <TextBox x:Name="count" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="92" Margin="0,544.114,34,0"/>
-        <Button Content="旋转" HorizontalAlignment="Right" VerticalAlignment="Top" Width="92" Margin="0,599.114,34,0" Click="Button_Click_1"/>
-        <Button x:Name="sx" Content="收缩" HorizontalAlignment="Right" VerticalAlignment="Top" Width="92" Margin="0,626.114,34,0" Click="Button_Click_2"/>
+        <Button Content="旋转" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="92" Margin="0,0,34,125" Click="Button_Click_1"/>
+        <Button x:Name="sx" Content="收缩" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="92" Margin="0,0,34,98" Click="Button_Click_2"/>
+        <Border x:Name="cl"  HorizontalAlignment="Right" Margin="0,0,34,67" Width="92" Background="{DynamicResource color}" MouseDown="cl_MouseDown" Height="26" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
     <UserControl.Background>
         <VisualBrush>
             <VisualBrush.Visual>
-                <Path x:Name="p" Data="M0 90l-0-900 900 900z" Fill="#FFFFE3D7" Stroke="#FFFDD4C2" RenderTransformOrigin="0.5,0.5" StrokeThickness="10">
+                <Path x:Name="p" Data="M0 90l-0-900 900 900z" Fill="{DynamicResource color}" Stroke="#FFFDD4C2" RenderTransformOrigin="0.5,0.5" StrokeThickness="10">
                     <Path.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

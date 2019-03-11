@@ -32,7 +32,8 @@ namespace Hello
             Paint(int.Parse(count.Text));
         }
 
-        private void Paint(int count=1) {
+        private void Paint(int count = 1)
+        {
             Rt lastrt = new Rt { jd = 0 };
             double alljd = 0;
             for (int i = 0; i < count; i++)
@@ -76,15 +77,29 @@ namespace Hello
                 }
                 sx.IsEnabled = true;
             }
-            else {
+            else
+            {
                 ss = 0;
                 sx.IsEnabled = false;
-                for (int i=hb.Children.Count-1;i>-1;i--)
+                for (int i = hb.Children.Count - 1; i > -1; i--)
                 {
                     hb.Children[i].BeginAnimation(OpacityProperty, new DoubleAnimation(1, TimeSpan.FromSeconds(0.1)));
                     await Task.Delay(100);
                 }
                 sx.IsEnabled = true;
+            }
+        }
+
+        private void cl_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Forms.ColorDialog colorDialog = new System.Windows.Forms.ColorDialog();
+            if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Color col = Color.FromArgb(colorDialog.Color.A, colorDialog.Color.R, colorDialog.Color.G, colorDialog.Color.B);
+                Application.Current.Resources["color"] = new SolidColorBrush(col);
+                foreach (Rt rt in hb.Children) {
+                    rt.set(100);
+                }
             }
         }
     }
