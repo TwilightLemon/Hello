@@ -28,7 +28,7 @@ namespace Hello
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            gb.Children.Clear();
+            hb.Children.Clear();
             Paint(int.Parse(count.Text));
         }
 
@@ -49,20 +49,43 @@ namespace Hello
                 rt.RenderTransformOrigin = new Point(1, 0);
                 rt.RenderTransform = rtf;
                 alljd += lastrt.jd;
-                gb.Children.Add(rt);
+                hb.Children.Insert(0, rt);
                 lastrt = rt;
             }
         }
-
+        int xz = 0;
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            RotateTransform rtf = new RotateTransform();
-            hb.RenderTransform = rtf;
-            hb.RenderTransformOrigin = new Point(0.5,0.5);
-            DoubleAnimation dbAscending = new DoubleAnimation(0, 360, new Duration
-            (TimeSpan.FromSeconds(1)));
-            dbAscending.RepeatBehavior = RepeatBehavior.Forever;
-            rtf.BeginAnimation(RotateTransform.AngleProperty, dbAscending);
+            var bo = Resources["sx"] as Storyboard;
+            if (xz == 0)
+            { bo.Begin(); xz = 1; }
+            else { bo.Pause(); xz = 0; }
+
+        }
+        int ss = 0;
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (ss == 0)
+            {
+                ss = 1;
+                sx.IsEnabled = false;
+                foreach (Rt rt in hb.Children)
+                {
+                    rt.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromSeconds(0.1)));
+                    await Task.Delay(100);
+                }
+                sx.IsEnabled = true;
+            }
+            else {
+                ss = 0;
+                sx.IsEnabled = false;
+                for (int i=hb.Children.Count-1;i>-1;i--)
+                {
+                    hb.Children[i].BeginAnimation(OpacityProperty, new DoubleAnimation(1, TimeSpan.FromSeconds(0.1)));
+                    await Task.Delay(100);
+                }
+                sx.IsEnabled = true;
+            }
         }
     }
 }
